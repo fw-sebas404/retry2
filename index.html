@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirigiendo...</title>
+    <script>
+        let countdown = 3; // Tiempo de cuenta regresiva en segundos
+
+        // Función que actualiza el contador y redirige cuando llega a 0
+        function startCountdown() {
+            const countdownElement = document.getElementById("countdown");
+
+            const interval = setInterval(() => {
+                countdownElement.textContent = countdown; // Mostrar la cuenta regresiva
+                countdown--;
+
+                if (countdown < 0) {
+                    clearInterval(interval); // Detener el intervalo
+                    window.location.href = ""; // Redirigir a la página
+                }
+            }, 1000); // Intervalo de 1 segundo
+        }
+
+        // Redirigir al hacer clic en el botón
+        function redirectToAnotherPage() {
+            window.location.href = "https://fw-sebas404.github.io/iPhone/"; // Cambia la URL por la que quieras
+        }
+
+        window.onload = startCountdown; // Iniciar la cuenta regresiva al cargar la página
+    </script>
+</head>
+<body>
+    <p>Serás redirigido en <span id="countdown">3</span> segundos...</p>
+    <button onclick="redirectToAnotherPage()">Ir a otra página</button>
+</body>
+</html>
